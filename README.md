@@ -7,7 +7,7 @@ Details to come soon.
 
 ```python
 >>> import model
->>> m = model.basicSIR()
+>>> m = model.SIR()
 >>> m.run()
 >>> m.plot()
 ```
