@@ -3,7 +3,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-class basicSIR:
+class SIR:
     def __init__(self, eons=1000, Susceptible=950, Infected=50, Resistant=0, rateSI=0.005, rateIR=0.01):
         self.eons = eons
         self.Susceptible = Susceptible
