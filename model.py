@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 class SIR:
-    def __init__(self, eons=1000, Susceptible=950, Infected=50, Resistant=0, rateSI=0.005, rateIR=0.01):
+    def __init__(self, eons=1000, Susceptible=950, Infected=50, Resistant=0, rateSI=0.05, rateIR=0.01):
         self.eons = eons
         self.Susceptible = Susceptible
         self.Infected = Infected
@@ -21,7 +21,7 @@ class SIR:
         Resistant = [self.Resistant]
 
         for step in range(1, self.eons):
-            S_to_I = Susceptible[-1] * self.rateSI
+            S_to_I = (self.rateSI * Susceptible[-1] * Infected[-1]) / self.numIndividuals
             I_to_R = Infected[-1] * self.rateIR
             Susceptible.append(Susceptible[-1] - S_to_I)
             Infected.append(Infected[-1] + S_to_I - I_to_R)
@@ -34,7 +34,7 @@ class SIR:
 
     def plot(self):
         if self.modelRun == False:
-            print('Error: Model has not run. Please run with SIR.run()')
+            print('Error: Model has not run. Please call SIR.run()')
             return
         plt.plot(self.results['Time'], self.results['Susceptible'], color='blue')
         plt.plot(self.results['Time'], self.results['Infected'], color='red')
