@@ -34,10 +34,14 @@ class SIR:
 
     def plot(self):
         if self.modelRun == False:
-            print('Error: Model has not run. Please run with SIRmodel.run()')
+            print('Error: Model has not run. Please run with SIR.run()')
             return
         plt.plot(self.results['Time'], self.results['Susceptible'], color='blue')
         plt.plot(self.results['Time'], self.results['Infected'], color='red')
         plt.plot(self.results['Time'], self.results['Resistant'], color='green')
+        plt.xlabel('Time')
+        plt.ylabel('Population')
+        plt.legend(['Susceptible','Infected','Resistant'], prop={'size': 10}, loc='upper center', bbox_to_anchor=(0.5, 1.02), ncol=3, fancybox=True, shadow=True)
+        plt.title(r'$\beta = {0}, \gamma = {1}$'.format(self.rateSI, self.rateIR))
         plt.savefig('test.png')
         plt.close()
