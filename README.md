@@ -26,3 +26,6 @@ Changable parameters include:
 * 'rateIR' (base rate 'gamma' from I to R, default 0.01)
 
 More complex alterations of the model will require specific engineering of the code. Feel free to dive in.
+
+## Example Output
+<img width="600" alt="portfolio_view" src="https://raw.githubusercontent.com/mattravenhall/BasicSIRModel/master/example.png">
